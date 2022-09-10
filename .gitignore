@@ -1,0 +1,12 @@
+
+bin
+bin-int
+build
+.vscode
+.xmake
+
+shaders
+
+*.c
+
+xmake.lua
