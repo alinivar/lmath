@@ -205,6 +205,9 @@ static inline void MatIdentity(mat4 m) {
  *
  *  This function multiplies the first matrix with the second matrix,
  *  the result will be stored in the first matrix.
+ * 
+ *  @param[in] first The first matrix.
+ *  @param[in] second The second matrix.
  */
 static inline void MatMulMat(mat4 first, mat4 second) {
     for (int i = 0; i < 4; i++) {
