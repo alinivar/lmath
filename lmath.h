@@ -329,6 +329,26 @@ static inline void MatRotate(mat4 m, float d, vec3 a) {
     }
 }
 
+/*! @brief Create an orthographic projection matrix.
+ *
+ *  This function creates an orthographic projection matrix.
+ * 
+ *  @param[in] m The matrix to store the orthographic projection matrix.
+ */
+static inline void MatOrtho(mat4 m, float left, float right, float bottom, float top, float n, float f) {
+    mat4 tmp = { 0 };
+
+    tmp[0]      =  2.0f             / (right - left);
+    tmp[5]      =  2.0f             / (top - bottom);
+    tmp[10]     = -2.0f             / (f - n);
+    tmp[12]     = -(right + left)   / (right / left);
+    tmp[13]     = -(top + bottom)   / (top - bottom);
+    tmp[14]     = -(f + n)          / (f - n);
+    tmp[15]     =  1.0f;
+
+    MatMulMat(m, tmp);
+}
+
 /*! @brief Create a perspective projection matrix.
  *
  *  This function creates a perspective projection matrix.
